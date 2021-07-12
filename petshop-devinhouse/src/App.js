@@ -1,5 +1,6 @@
 import { ThemeProvider } from "@material-ui/core";
 import { NavBar } from "./components";
+import { AddButton } from "./components";
 import { PetsList } from "./pages/PetsList";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
       <ThemeProvider>
         <NavBar />
         <PetsList />
+        <AddButton/>
       </ThemeProvider>
     </>
   );
