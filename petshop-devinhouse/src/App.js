@@ -1,9 +1,14 @@
+import { ThemeProvider } from "@material-ui/core";
 import { NavBar } from "./components";
+import { PetsList } from "./pages/PetsList";
 
 function App() {
   return (
     <>
-      <NavBar />
+      <ThemeProvider>
+        <NavBar />
+        <PetsList />
+      </ThemeProvider>
     </>
   );
 }
