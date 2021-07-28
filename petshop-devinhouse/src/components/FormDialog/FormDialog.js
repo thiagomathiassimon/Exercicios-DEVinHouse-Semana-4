@@ -8,20 +8,45 @@ import {
 } from "@material-ui/core";
 import { useOpen } from "../../contexts";
 
-export const FormDialog = () => {
+export const FormDialog = (props) => {
   const { open, onChangeOpenedState } = useOpen();
 
-  const handleClose = () => {
-    onChangeOpenedState();
-  };
+  const { onClose, onSubmit, petsList } = props;
 
   return (
-    <Dialog open={open} onClose={handleClose} aria-label="form-dialog-title">
+    <Dialog open={open} onClose={onClose} aria-label="form-dialog-title">
       <DialogTitle id="form-dialog-title">Adicionar Pet</DialogTitle>
       <DialogContent>
-        <TextField margin="dense" label="Espécie" variant="filled" fullWidth />
-        <TextField margin="dense" label="Raça" variant="filled" fullWidth />
         <TextField
+          id="image"
+          margin="dense"
+          label="Imagem"
+          variant="filled"
+          fullWidth
+        />
+        <TextField
+          id="specie"
+          margin="dense"
+          label="Espécie"
+          variant="filled"
+          fullWidth
+        />
+        <TextField
+          id="subspecies"
+          margin="dense"
+          label="Raça"
+          variant="filled"
+          fullWidth
+        />
+        <TextField
+          id="sex"
+          margin="dense"
+          label="Sexo"
+          variant="filled"
+          fullWidth
+        />
+        <TextField
+          id="description"
           margin="dense"
           label="Descrição"
           multiline
@@ -30,6 +55,7 @@ export const FormDialog = () => {
           fullWidth
         />
         <TextField
+          id="price"
           margin="dense"
           label="Preço"
           type="number"
@@ -38,10 +64,10 @@ export const FormDialog = () => {
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose} color="secondary">
+        <Button onClick={onClose} color="secondary">
           Cancelar
         </Button>
-        <Button onClick={handleClose} color="primary">
+        <Button onClick={onSubmit} color="primary">
           Salvar
         </Button>
       </DialogActions>

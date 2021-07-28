@@ -10,8 +10,6 @@ function App() {
       <ThemeProvider>
         <NavBar />
         <PetsList />
-        <AddButton />
-        <FormDialog />
       </ThemeProvider>
     </OpenProvider>
   );
