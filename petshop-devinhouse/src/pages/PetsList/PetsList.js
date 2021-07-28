@@ -15,26 +15,9 @@ export const PetsList = () => {
     onChangeOpenedState();
   };
 
-  const handleSubmit = () => {
-    const image = document.getElementById("image")?.value;
-    const specie = document.getElementById("specie")?.value;
-    const sex = document.getElementById("sex")?.value;
-    const subspecies = document.getElementById("subspecies")?.value;
-    const description = document.getElementById("description")?.value;
-    const price = document.getElementById("price")?.value;
-
-    const newPet = {
-      id: Pets.length + 1,
-      species: specie,
-      sex: sex,
-      subspecies: subspecies,
-      description: description,
-      price: price,
-      image: image,
-    };
-
-    console.log(newPet);
-    Pets.push(newPet);
+  const handleSubmit = (values) => {
+    console.log(values);
+    Pets.push(values);
     console.log(Pets);
     handleClose();
   };
