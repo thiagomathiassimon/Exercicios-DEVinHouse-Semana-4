@@ -1,6 +1,5 @@
-import { makeStyles, ThemeProvider } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import { red } from "@material-ui/core/colors";
-import { NoEncryption } from "@material-ui/icons";
 
 export const useStyles = makeStyles((theme) => ({
   root: {

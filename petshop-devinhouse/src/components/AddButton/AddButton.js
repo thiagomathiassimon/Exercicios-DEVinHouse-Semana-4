@@ -5,7 +5,7 @@ import { useStyles } from "./AddButton.styles";
 
 export const AddButton = () => {
   const classes = useStyles();
-  const { open, onChangeOpenedState } = useOpen();
+  const { onChangeOpenedState } = useOpen();
 
   const handleClick = () => {
     onChangeOpenedState();

@@ -1,7 +1,6 @@
 import { ThemeProvider } from "@material-ui/core";
-import { useEffect, useState } from "react";
-import { NavBar, AddButton, FormDialog } from "./components";
-import { OpenForm, OpenProvider, useOpen } from "./contexts";
+import { NavBar } from "./components";
+import { OpenProvider } from "./contexts";
 import { PetsList } from "./pages/PetsList";
 
 function App() {

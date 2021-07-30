@@ -1,25 +1,33 @@
-import { Divider, Grid } from "@material-ui/core";
-import { useEffect, useRef, useState } from "react";
+import { Grid } from "@material-ui/core";
+import { useEffect, useState } from "react";
 import { AddButton, CardContainer, FormDialog } from "../../components";
+import { Toast } from "../../components/Toast";
 import { useOpen } from "../../contexts";
 import { Pets } from "../../services";
 
 export const PetsList = () => {
   const [pets, setPets] = useState();
 
-  const { open, onChangeOpenedState } = useOpen();
+  const [toastOpen, setToastOpen] = useState(false);
+  const [isSuccessToast, setIsSuccessToast] = useState(false);
 
-  useEffect(() => setPets(Pets), [Pets]);
+  const { onChangeOpenedState } = useOpen();
+
+  useEffect(() => setPets(Pets), []);
 
   const handleClose = () => {
     onChangeOpenedState();
   };
 
-  const handleSubmit = (values) => {
-    console.log(values);
+  const handleSubmit = (values, { setSubmitting }) => {
     Pets.push(values);
-    console.log(Pets);
     handleClose();
+    setIsSuccessToast(true);
+    setToastOpen(true);
+  };
+
+  const handleToastClose = () => {
+    setToastOpen(false);
   };
 
   return (
@@ -34,6 +42,7 @@ export const PetsList = () => {
           return (
             <>
               <CardContainer
+                key={element.image}
                 title={element.species}
                 subtitle={element.subspecies}
                 description={element.description}
@@ -47,6 +56,20 @@ export const PetsList = () => {
           petsList={pets}
           onClose={handleClose}
           onSubmit={handleSubmit}
+          toastOpen={toastOpen}
+          setToastOpen={setToastOpen}
+          isSuccessToast={isSuccessToast}
+          setIsSuccessToast={setIsSuccessToast}
+        />
+        <Toast
+          open={toastOpen}
+          handleClose={handleToastClose}
+          toastSeverity={isSuccessToast ? "success" : "error"}
+          toastMessage={
+            isSuccessToast
+              ? "Pet adicionado com sucesso!"
+              : "Não foi possível adicionar o pet!\nVerifique os campos e tente novamente!"
+          }
         />
       </Grid>
     </>
