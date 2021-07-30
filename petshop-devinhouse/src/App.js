@@ -5,12 +5,12 @@ import { PetsList } from "./pages/PetsList";
 
 function App() {
   return (
-    <OpenProvider>
-      <ThemeProvider>
-        <NavBar />
+    <ThemeProvider>
+      <NavBar />
+      <OpenProvider>
         <PetsList />
-      </ThemeProvider>
-    </OpenProvider>
+      </OpenProvider>
+    </ThemeProvider>
   );
 }
 

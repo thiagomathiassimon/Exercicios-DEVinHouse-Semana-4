@@ -118,11 +118,7 @@ export const FormDialog = (props) => {
               </DialogContent>
               <DialogActions>
                 <Button
-                  onClick={() => {
-                    onClose();
-                    setIsSuccessToast(false);
-                    setToastOpen(true);
-                  }}
+                  onClick={onClose}
                   color="secondary"
                 >
                   Cancelar
