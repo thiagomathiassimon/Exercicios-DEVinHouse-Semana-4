@@ -131,7 +131,7 @@ export const FormDialog = (props) => {
                   Limpar
                 </Button>
                 <Button
-                  disabled={isSubmitting || !isValid}
+                  disabled={!isValid}
                   type="submit"
                   color="primary"
                 >

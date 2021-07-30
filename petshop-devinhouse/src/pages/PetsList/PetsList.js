@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { AddButton, CardContainer, FormDialog } from "../../components";
 import { Toast } from "../../components/Toast";
 import { useOpen } from "../../contexts";
-import { Pets } from "../../services";
+import { Pets, post } from "../../services";
 
 export const PetsList = () => {
   const [pets, setPets] = useState();
@@ -20,9 +20,11 @@ export const PetsList = () => {
   };
 
   const handleSubmit = (values, { setSubmitting }) => {
-    Pets.push(values);
-    handleClose();
-    setIsSuccessToast(true);
+    const successful = post(values);
+    if (!!successful) {
+      handleClose();
+    }
+    setIsSuccessToast(successful);
     setToastOpen(true);
   };
 

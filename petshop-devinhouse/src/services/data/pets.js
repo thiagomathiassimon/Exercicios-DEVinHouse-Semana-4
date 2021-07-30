@@ -40,3 +40,14 @@ export const Pets = [
       "https://awebic.com/wp-content/uploads/2016/08/awebic-maine-coon-5.jpg",
   },
 ];
+
+export const post = (value = {}) => {
+  const hasNumber = value.species.match("[0-9]+");
+  console.log("hasNumber", hasNumber)
+  if (hasNumber) {
+    return false;
+  } else {
+    Pets.push(value);
+    return true;
+  }
+};
