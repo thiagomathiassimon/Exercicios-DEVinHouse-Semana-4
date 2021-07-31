@@ -11,7 +11,7 @@ export const Toast = (props) => {
   const { open, handleClose, toastMessage, toastSeverity } = props;
 
   return (
-    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} data-testid="toast">
       <Alert onClose={handleClose} severity={toastSeverity}>
         {toastMessage}
       </Alert>

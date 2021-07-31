@@ -11,7 +11,7 @@ export const PetsList = () => {
   const [toastOpen, setToastOpen] = useState(false);
   const [isSuccessToast, setIsSuccessToast] = useState(false);
 
-  const { onChangeOpenedState } = useOpen();
+  const { open, onChangeOpenedState } = useOpen();
 
   useEffect(() => setPets(Pets), []);
 
@@ -53,8 +53,9 @@ export const PetsList = () => {
             </>
           );
         })}
-        <AddButton />
+        <AddButton onChangeOpenedState={onChangeOpenedState} />
         <FormDialog
+          open={open}
           petsList={pets}
           onClose={handleClose}
           onSubmit={handleSubmit}

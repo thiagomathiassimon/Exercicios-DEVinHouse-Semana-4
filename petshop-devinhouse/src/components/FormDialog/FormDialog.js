@@ -7,13 +7,10 @@ import {
   TextField,
 } from "@material-ui/core";
 import { Field, Form, Formik } from "formik";
-import { useOpen } from "../../contexts";
 import { initialPet, petSchema } from "./FormSchema";
 
 export const FormDialog = (props) => {
-  const { open } = useOpen();
-
-  const { onClose, onSubmit } = props;
+  const { open, onClose, onSubmit } = props;
 
   return (
     <>
@@ -41,6 +38,7 @@ export const FormDialog = (props) => {
               <DialogTitle id="form-dialog-title">Adicionar Pet</DialogTitle>
               <DialogContent>
                 <Field
+                  data-testid="image"
                   name="image"
                   margin="dense"
                   label="Imagem"
@@ -50,7 +48,7 @@ export const FormDialog = (props) => {
                   error={touched?.image && errors.image}
                 />
                 {touched?.image && errors.image && (
-                  <div style={{ color: "red" }}>{errors.image}</div>
+                  <div data-testid="imageError" style={{ color: "red" }}>{errors.image}</div>
                 )}
                 <Field
                   name="species"
@@ -117,20 +115,13 @@ export const FormDialog = (props) => {
                 )}
               </DialogContent>
               <DialogActions>
-                <Button
-                  onClick={onClose}
-                  color="secondary"
-                >
+                <Button onClick={onClose} color="secondary">
                   Cancelar
                 </Button>
                 <Button onClick={resetForm} color="inherit">
                   Limpar
                 </Button>
-                <Button
-                  disabled={!isValid}
-                  type="submit"
-                  color="primary"
-                >
+                <Button disabled={!isValid} type="submit" color="primary">
                   Salvar
                 </Button>
               </DialogActions>

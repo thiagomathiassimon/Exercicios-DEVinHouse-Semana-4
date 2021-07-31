@@ -20,6 +20,7 @@ export const NavBar = () => {
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
+            data-testid="menu"
           >
             <MenuIcon />
           </IconButton>

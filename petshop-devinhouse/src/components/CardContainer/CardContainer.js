@@ -24,7 +24,7 @@ export const CardContainer = (props) => {
 
   const { image, title, subtitle, description } = props;
   return (
-    <Card className={classes.root} elevation={3}>
+    <Card className={classes.root} elevation={3} data-testid="cardContainer">
       <CardActionArea>
         <CardMedia
           className={classes.image}

@@ -3,9 +3,8 @@ import AddCircleIcon from "@material-ui/icons/AddCircle";
 import { useOpen } from "../../contexts";
 import { useStyles } from "./AddButton.styles";
 
-export const AddButton = () => {
+export const AddButton = ({ onChangeOpenedState }) => {
   const classes = useStyles();
-  const { onChangeOpenedState } = useOpen();
 
   const handleClick = () => {
     onChangeOpenedState();
@@ -16,6 +15,7 @@ export const AddButton = () => {
         color="primary"
         size="medium"
         variant="text"
+        data-testid="addButton"
         className={classes.button}
         onClick={handleClick}
       >
