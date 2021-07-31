@@ -35,6 +35,7 @@ export const PetsList = () => {
   return (
     <>
       <Grid
+        data-testid="listPage"
         container
         direction="row"
         justifyContent="center"
