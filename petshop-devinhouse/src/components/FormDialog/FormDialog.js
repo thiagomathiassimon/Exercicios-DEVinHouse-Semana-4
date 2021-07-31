@@ -13,7 +13,7 @@ import { initialPet, petSchema } from "./FormSchema";
 export const FormDialog = (props) => {
   const { open } = useOpen();
 
-  const { onClose, onSubmit, setIsSuccessToast, setToastOpen } = props;
+  const { onClose, onSubmit } = props;
 
   return (
     <>
